@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>popUpAlert</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    private func popUpAlert() {
+        
+        let alert = UIAlertController(title: "YOUR_TITLE", message: nil, preferredStyle: .alert)
+        
+        /// Action
+        let action = UIAlertAction(title: "YOUR_ACTION", style: .default) { (action) in
+            guard let text = alert.textFields?[0].text else { return }
+        }
+        alert.addAction(action)
+        
+        /// Cancel
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancel)
+        
+        /// Text Field
+        alert.addTextField { (textField) in
+            textField.placeholder = "YOUR_PLACEHOLDER"
+            textField.text = "YOUR_TEXT"
+        }
+        
+        present(alert, animated: true)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>69764906-C7CB-47D4-8715-AA1F23E2E947</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Alert - PopUp Alert</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

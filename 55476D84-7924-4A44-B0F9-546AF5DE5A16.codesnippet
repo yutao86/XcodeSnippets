@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>tableViewController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import UIKit
+
+class ViewController: UITableViewController {
+
+    enum Section: Int, CaseIterable {
+        case section1
+        case section2
+        static let names = ["Section 1","Section 2"]
+        
+        enum Section1: Int, CaseIterable {
+            case row1
+            case row2
+            static let names = ["Row 1","Row 2"]
+        }
+        
+        enum Section2: Int, CaseIterable {
+            case row1
+            case row2
+            static let names = ["Row 1","Row 2"]
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    // MARK: - UITableViewDataSource
+    
+    override func numberOfSections(in tableView: UITableView) -&gt; Int {
+        return Section.allCases.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        switch Section(rawValue: section)! {
+        case .section1:
+            return Section.Section1.allCases.count
+        case .section2:
+            return Section.Section2.allCases.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -&gt; String? {
+        return Section.names[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        let cell = fetchCell(from: tableView, forRowAt: indexPath)
+        updatehCell(cell, forRowAt: indexPath)
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        switch Section(rawValue: indexPath.section)! {
+        case .section1:
+            switch Section.Section1(rawValue: indexPath.row)! {
+            case .row1:
+                break
+            case .row2:
+                break
+            }
+        case .section2:
+            switch Section.Section2(rawValue: indexPath.row)! {
+            case .row1:
+                break
+            case .row2:
+                break
+            }
+        }
+    }
+    
+    // MARK: UITableView Private
+
+    private func fetchCell(from tableView: UITableView, forRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        let cellId = "YOUR_CELL_ID"
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) { return cell }
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.detailTextLabel?.textColor = .gray
+        cell.detailTextLabel?.numberOfLines = 0
+        return cell
+    }
+    
+    private func updatehCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath)  {
+        switch Section(rawValue: indexPath.section)! {
+        case .section1:
+            cell.textLabel?.text = Section.Section1.names[indexPath.row]
+            switch Section.Section1(rawValue: indexPath.row)! {
+            case .row1:
+                break
+            case .row2:
+                break
+            }
+        case .section2:
+            cell.textLabel?.text = Section.Section1.names[indexPath.row]
+            switch Section.Section2(rawValue: indexPath.row)! {
+            case .row1:
+                break
+            case .row2:
+                break
+            }
+        }
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>55476D84-7924-4A44-B0F9-546AF5DE5A16</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>TableViewController Template</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static int sections = 1;
+
+typedef NS_ENUM(NSUInteger, Section) {
+    SectionActions,
+};
+
+#define sectionNames @[@"Actions",]
+
+static int actions = 1;
+
+typedef NS_ENUM(NSUInteger, Action) {
+    ActionReload,
+};
+
+#define actionNames @[@"Reload",]
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return sections;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch(section) {
+        case SectionActions:
+            return actions;
+        default :
+            NSAssert(NO, @"Invalid section %ld", section);
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return sectionNames[section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString * reusableId = @"YOUR_ID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:reusableId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reusableId];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.detailTextLabel.numberOfLines = 0;
+    }
+    [self updateCell:cell forRowAt:indexPath];
+    return cell;
+}
+
+
+-(void)updateCell:(UITableViewCell *)cell forRowAt:(NSIndexPath *)indexPath {
+    switch(indexPath.section) {
+        case SectionActions:
+            cell.textLabel.text = actionNames[indexPath.row];
+            break;
+        default :
+            NSAssert(NO, @"Invalid section %ld", indexPath.section);
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch(indexPath.section) {
+        case SectionActions:
+            switch(indexPath.row) {
+                case ActionReload:
+                    NSLog(@"Reload did select");
+                    break;
+                default :
+                    NSAssert(NO, @"Invalid row %ld in section %ld", indexPath.row, indexPath.section);
+            }
+            break;
+        default :
+            NSAssert(NO, @"Invalid section %ld", indexPath.section);
+    }
+}
+
+@end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E85FE091-8665-42F9-A30F-1A2023B824DE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>TableViewController for objc</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

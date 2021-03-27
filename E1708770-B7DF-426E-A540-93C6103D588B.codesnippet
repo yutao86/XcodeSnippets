@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>AsyncOperation</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class AsyncOperation: Operation {
+    
+    private enum State: String {
+        case isReady
+        case isExecuting
+        case isFinished
+    }
+    
+    private var state: State = .isReady {
+        willSet(newValue) {
+            willChangeValue(forKey: state.rawValue)
+            willChangeValue(forKey: newValue.rawValue)
+        }
+        didSet {
+            didChangeValue(forKey: oldValue.rawValue)
+            didChangeValue(forKey: state.rawValue)
+        }
+    }
+    
+    override var isAsynchronous: Bool { true }
+    
+    override var isExecuting: Bool { state == .isExecuting }
+    
+    override var isFinished: Bool {
+        if isCancelled &amp;&amp; state != .isExecuting { return true }
+        return state == .isFinished
+    }
+    
+    override func start() {
+        guard !isCancelled else { return }
+        print("Did start")
+        state = .isExecuting
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4)) {
+            print("Will finish")
+            self.state = .isFinished
+            print("Did finish")
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E1708770-B7DF-426E-A540-93C6103D588B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Template of Async Operation</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AsyncOperation</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
