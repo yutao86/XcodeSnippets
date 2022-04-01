@@ -3,33 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>section</string>
+	<string>block</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    enum Section: Int, CaseIterable {
-        case section0
-        case section1
-        static let names = [ "Setion 0", "Setion 1", ]
-        enum Row: Int, CaseIterable {
-            case row0
-            case row1
-            static let names = [ "Row 0", "Row 1", ]
-        }
-    }</string>
+	<string>- (void)someMethodThatTakesABlock:(returnType (^nullability)(parameterTypes))blockName {
+    
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>94B40EB7-E1F1-44DB-96E6-B8F38196F869</string>
+	<string>EB6A06DA-8495-4E4A-9A9C-15B305D2F6F0</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>TableView Section And Row Statement</string>
+	<string>Block as Parameter</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

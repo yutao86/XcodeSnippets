@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>popUpAlert</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(void)popUpInputAlertWithTitle:(NSString *)title message:(NSString *)message buttonTitle:(NSString *)buttonTitle buttonClickHandler:(void (^_Nullable)(NSString *))buttonClickHandler {
+
+    UIAlertController * controller = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [controller addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            
+    }];
+    UIAlertAction * okAction = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (buttonClickHandler) {
+            buttonClickHandler(controller.textFields[0].text);
+        }
+        [controller dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [controller addAction:okAction];
+    [self presentViewController:controller animated:YES completion:nil];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>73F31007-1AA2-48BB-8825-F1A4A35C5619</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Popup Input Alert</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

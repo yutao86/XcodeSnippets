@@ -6,7 +6,7 @@
 	<string>tableViewController</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>import UIKit
@@ -121,7 +121,7 @@ class ViewController: UITableViewController {
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>TableViewController Template</string>
+	<string>TableViewController swift</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>TableViewController</string>
 	<key>IDECodeSnippetUserSnippet</key>

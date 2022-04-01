@@ -3,33 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>section</string>
+	<string>static</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    enum Section: Int, CaseIterable {
-        case section0
-        case section1
-        static let names = [ "Setion 0", "Setion 1", ]
-        enum Row: Int, CaseIterable {
-            case row0
-            case row1
-            static let names = [ "Row 0", "Row 1", ]
-        }
-    }</string>
+	<string>static NSString *const name = @"value";</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>94B40EB7-E1F1-44DB-96E6-B8F38196F869</string>
+	<string>3A107A3D-8347-4BDD-8868-9F9127CD29DD</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>TableView Section And Row Statement</string>
+	<string>Static String</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
