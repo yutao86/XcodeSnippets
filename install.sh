@@ -1,36 +1,22 @@
 #!/bin/bash
 
-XCODE_USERDATA=~/Library/Developer/Xcode/UserData/
-NAME=CodeSnippets
-TEMP_NAME=_CodeSnippets
+REPO_NAME=XcodeSnippets
+LOCAL_REPO_PATH=~/.XcodeSnippets
+SNIPPETS_PATH=~/Library/Developer/Xcode/UserData/CodeSnippets
 
-# 1.检查文件夹
-if [ ! -d "${XCODE_USERDATA}" ]; then
-	echo "Folder ${XCODE_USERDATA} not found." >&2
-	exit -1
-fi
+rm -rf "${LOCAL_REPO_PATH}"
 
-# 2.克隆到临时文件夹
-cd "${XCODE_USERDATA}" 
-rm -rf "${TEMP_NAME}"
-git clone "git@github.com:yutao86/${NAME}.git" "${TEMP_NAME}"
-
-if [ $? -eq 0 ] 
-then
-	echo "Cloned repository successfully."
+echo  "Cloning repo to ${LOCAL_REPO_PATH}..."
+git clone "git@github.com:yutao86/${REPO_NAME}.git" "${LOCAL_REPO_PATH}"
+if [ $? -eq 0 ]; then
+	echo "Repository cloned."
 else 
 	echo "Failed to clone repository." >&2 
 	exit -1
 fi
 
-# 3.替换到目标文件夹
-rm -rf "${NAME}"
-mv "${TEMP_NAME}" "${NAME}"
+echo  "Linking ${SNIPPETS_PATH} to ${LOCAL_REPO_PATH}..."
+rm -rf "${SNIPPETS_PATH}"
+ln -s "${LOCAL_REPO_PATH}" "${SNIPPETS_PATH}"
 
-if [ $? -eq 0 ] 
-then
-	echo "Installed code snippets successfully."
-else 
-	echo "Failed to replace code snippets folder." >&2 
-	exit -1
-fi
+echo  "Done."
