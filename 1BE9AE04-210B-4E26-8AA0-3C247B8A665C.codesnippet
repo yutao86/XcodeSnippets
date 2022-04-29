@@ -3,24 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>static</string>
+	<string>addobserver</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>TopLevel</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>static NSString *const name = @"value";</string>
+	<string>NotificationCenter.default.addObserver(forName: .&lt;#name#&gt;, object: &lt;#objct#&gt;, queue: .main) { (notificaiton) in
+    &lt;#code#&gt;
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3A107A3D-8347-4BDD-8868-9F9127CD29DD</string>
+	<string>1BE9AE04-210B-4E26-8AA0-3C247B8A665C</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string></string>
+	<string>Receive Notification</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Static String</string>
+	<string>Notification Add Observer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
