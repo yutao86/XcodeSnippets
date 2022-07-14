@@ -10,7 +10,7 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>    private func fetchCell(from tableView: UITableView, forRowAt indexPath: IndexPath) -&gt; UITableViewCell {
-        let cellId = "YOUR_CELL_ID"
+        let cellId = "ANONYMOUS_CELL_ID"
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) { return cell }
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         cell.textLabel?.adjustsFontSizeToFitWidth = true
